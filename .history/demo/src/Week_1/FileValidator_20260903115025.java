@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class FileValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int day = scanner.nextInt();
+        int month = scanner.nextInt();
+        int year = scanner.nextInt();
+        System.out.println(day + "/" + month + "/" + year);
+        Boolean isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        int maxDays;
+        switch (month) {
+            case 1, 3, 5, 7, 8, 10, 12:
+                maxDays = 31;
+                break;
+            case 4, 6, 9, 11:
+                maxDays = 30;
+                break;
+            case 2:
+                maxDays = isLeap ? 29 : 28;
+                break;
+            default:
+                maxDays = 0;
+                break;
+        }
+        boolean validDate = (year > 0) && (month >=1 && month<=12) && (day >=1 && day<=maxDays) ; 
+        scanner.close();
+    }
+}
