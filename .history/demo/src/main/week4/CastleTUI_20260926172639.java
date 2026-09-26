@@ -1,0 +1,69 @@
+package week4;
+
+import java.util.Scanner;
+
+public class CastleTUI {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String coralCastleName = sc.nextLine();
+        int numberOfCaves = sc.nextInt();
+        CoralCastle coralCastle = new CoralCastle(coralCastleName, numberOfCaves);
+        System.out.printf("Castle %s created with %d caves. ", coralCastleName, numberOfCaves);
+        System.out.println("Type 'help' for commands.");
+
+        boolean running = true;
+        while (running) {
+            String command = sc.next();
+
+            switch (command) {
+                case "in":
+                    String name = sc.next();
+                    int size = sc.nextInt();
+                    Cave cave = coralCastle.checkIn(name, size);
+                    if (cave != null) {
+                        System.out.printf("Guest %s gets cave %d%n", name, cave.getNumber());
+                    } else {
+                        System.out.println("No suitable cave available for " + name);
+                    }
+                    break;
+                case "out":
+                    name = sc.next();
+                    if (coralCastle.checkOut(name)) {
+                        System.out.println(name + " has checked out.");
+                    } else {
+                        System.out.printf("Guest %s is not in the castle.%n", name);
+                    }
+                    break;
+                case "cave":
+                    name = sc.next();
+                    Cave cave = coralCastle.getCaveByGuestName(name);
+                    if (cave != null) {
+                        System.out.printf("Guest %s is in cave %d%n", name, cave.getNumber());
+                    } else {
+                        System.out.printf("Guest %s doesn't have a cave.%n", name);
+                    }
+                    break;
+                case "print":
+                    System.out.println(coralCastle.toString());
+                    break;
+                case "help":
+                    System.out.println("""
+                            Commands:
+                            in [name] [size] - Check in a guest with the given name and size
+                            out [name] - Check out the guest with the given name
+                            cave [name] - Show the cave number of the guest with the name
+                            print - Print the current state of the castle
+                            help - Show this help menu
+                            exit - Exit the program""");
+                    break;
+                case "exit":
+                    System.out.println("Closing the system.");
+                    running = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+        sc.close();
+    }
+}
