@@ -1,0 +1,38 @@
+package week2;
+
+import java.util.*; // For Scanner, Random, etc.
+
+/** 
+ * Number guessing game for humans.
+ * 
+ * Enter a seed number, and the computer will think of a number between 0 and
+ * 99 that you have to guess in at most seven tries. Afterwards, you see your
+ * guessing history so you can learn to better play the game.
+ * 
+ * @author Jose Andre Youssef Lopes
+ * @id     2433753
+ * @author Victor Vassilev Dichev
+ * @id     2456486
+ */
+public class HumanGame {
+    Scanner sc = new Scanner(System.in);
+    Random randomGenerator;
+
+    void run() {
+        System.out.println("Type an arbitrary number");
+        long seed = sc.nextLong();
+        randomGenerator = new Random(seed);
+        System.out.println("Start guessing!");
+        int num = randomGenerator.nextInt(99);
+        int guess = -1;
+        while(guess != num){
+            guess=sc.nextInt();
+            System.out.println((guess > num));
+        }
+
+    }
+
+    public static void main(String[] args) {
+        new HumanGame().run();
+    }
+}

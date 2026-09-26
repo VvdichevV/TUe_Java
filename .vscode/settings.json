@@ -16,5 +16,15 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#1857a4",
-  "AllAutocomplete.showCurrentDocument": false
+  "AllAutocomplete.showCurrentDocument": false,
+  "java.checkstyle.configuration": "${workspaceFolder}/demo/2IP90_checks.xml",
+  "java.checkstyle.version": "13.7.0",
+  "chat.tools.terminal.autoApprove": {
+    "/^cd demo && set \"JAVA_HOME=C:/Users/vikod/AppData/Roaming/Code/User/globalStorage/pleiades\\.java-extension-pack-jdk/java/17\" && set \"PATH=C:/Users/vikod/AppData/Roaming/Code/User/globalStorage/pleiades\\.java-extension-pack-jdk/java/17/bin;C:/Users/vikod/\\.maven/maven-3\\.9\\.12/bin;%PATH%\" && C:/Users/vikod/\\.maven/maven-3\\.9\\.12/bin/mvn\\.cmd clean test -q -Dcheckstyle\\.skip=true$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  },
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms100m -Xlog:disable",
+  "java.debug.settings.onBuildFailureProceed": true
 }
