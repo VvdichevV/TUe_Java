@@ -1,0 +1,1 @@
+public statit void main(String[])

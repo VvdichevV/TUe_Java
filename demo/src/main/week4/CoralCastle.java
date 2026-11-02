@@ -31,7 +31,7 @@ public class CoralCastle {
             }
         }
         return false;
-    }
+    }   
 
     public Cave getCaveByGuestName(String guestName) {
         for (Cave cave : caves) {
